@@ -1,3 +1,5 @@
+import Link from "next/link";
+
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
@@ -23,7 +25,31 @@ export default function RootLayout({ children }: LayoutProps<"/">) {
       lang="en"
       className={`${geistSans.variable} ${geistMono.variable} h-full antialiased`}
     >
-      <body className="min-h-full flex flex-col">{children}</body>
+      <body className="min-h-full flex flex-col">
+        <header className="bg-slate-900 text-white px-8 py-8 shadow-lg ">
+          <nav className="flex items-center justify-between">
+
+            <Link href="/">
+              Home
+            </Link>
+            <Link href="/about">
+              About
+            </Link>
+            <Link href="/services">
+              Services
+            </Link>
+            <Link href="/products">
+              Product
+            </Link>
+            <Link href="/contact">
+              Contact
+            </Link>
+
+
+          </nav>
+        </header>
+        {children}
+      </body>
     </html>
   );
 }
